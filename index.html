@@ -1,292 +1,564 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>NR Kitchen and Bedrooms LTD | Kitchen & Bedroom Fitting</title>
-  <meta name="description" content="NR Kitchen and Bedrooms LTD provides professional kitchen fitting, bedroom installation, wardrobes, renovations, painting and decorating services." />
-  <meta name="keywords" content="NR Kitchen and Bedrooms LTD, kitchen fitting, bedroom installation, wardrobes, home renovation, Birmingham, UK" />
-  <meta property="og:title" content="NR Kitchen and Bedrooms LTD" />
-  <meta property="og:description" content="Professional kitchen, bedroom and interior renovation services." />
-  <meta property="og:type" content="website" />
-  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="styles.css" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>NR Kitchen & Bedrooms LTD | Bespoke Kitchen & Bedroom Interiors</title>
+  <meta name="description" content="NR Kitchen and Bedrooms LTD provides modern kitchen fitting, bedroom installation, fitted wardrobes and interior renovation services.">
+  <style>
+    :root{
+      --ink:#172033;
+      --text:#344056;
+      --muted:#6b7280;
+      --cream:#fff8ec;
+      --white:#ffffff;
+      --coral:#ff6f4d;
+      --orange:#ff9f43;
+      --gold:#f6c453;
+      --green:#2fbf71;
+      --blue:#5b7cfa;
+      --purple:#a855f7;
+      --pink:#ff7ab6;
+      --mint:#e2fff0;
+      --lav:#f0e4ff;
+      --peach:#ffe8dc;
+      --sky:#e7eeff;
+      --shadow:0 24px 70px rgba(23,32,51,.14);
+      --shadow2:0 34px 100px rgba(23,32,51,.22);
+      --radius:32px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:Arial,Helvetica,sans-serif;
+      color:var(--text);
+      line-height:1.6;
+      background:
+        radial-gradient(circle at 10% 6%,rgba(255,111,77,.22),transparent 26%),
+        radial-gradient(circle at 92% 8%,rgba(91,124,250,.20),transparent 28%),
+        radial-gradient(circle at 50% 60%,rgba(47,191,113,.13),transparent 30%),
+        linear-gradient(180deg,#fff8ec 0%,#fff 45%,#fff7ed 100%);
+      overflow-x:hidden;
+    }
+    body.menu-open{overflow:hidden}
+    img{max-width:100%;display:block}
+    a{text-decoration:none;color:inherit}
+    button,input,textarea,select{font:inherit}
+    .container{width:min(1180px,calc(100% - 32px));margin:auto}
+
+    .orb{position:fixed;z-index:-1;border-radius:999px;filter:blur(22px);opacity:.5;pointer-events:none}
+    .orb.one{width:360px;height:360px;background:#ff6f4d;left:-110px;top:160px}
+    .orb.two{width:420px;height:420px;background:#5b7cfa;right:-150px;top:230px}
+    .orb.three{width:300px;height:300px;background:#2fbf71;left:45%;bottom:4%;opacity:.22}
+
+    .header{
+      position:fixed;
+      top:16px;
+      left:0;
+      right:0;
+      z-index:100;
+    }
+    .nav{
+      min-height:76px;
+      padding:0 18px;
+      border-radius:999px;
+      background:rgba(255,255,255,.86);
+      border:1px solid rgba(255,255,255,.92);
+      box-shadow:0 18px 60px rgba(23,32,51,.13);
+      backdrop-filter:blur(18px);
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+    }
+    .brand{display:flex;align-items:center;gap:12px}
+    .brand-icon{
+      width:50px;height:50px;border-radius:18px;
+      display:grid;place-items:center;
+      color:white;font-weight:900;letter-spacing:-.05em;
+      background:linear-gradient(135deg,var(--coral),var(--gold) 52%,var(--green));
+      box-shadow:0 14px 34px rgba(255,111,77,.30);
+    }
+    .brand strong,.brand small{display:block;line-height:1.05}
+    .brand strong{color:var(--ink);font-size:17px;letter-spacing:-.04em}
+    .brand small{color:var(--muted);font-size:11px;text-transform:uppercase;letter-spacing:.14em;font-weight:800}
+    .links{display:flex;align-items:center;gap:24px;color:#3b465a;font-size:14px;font-weight:800}
+    .links a:hover{color:var(--coral)}
+    .quote{
+      color:white!important;
+      background:linear-gradient(135deg,var(--coral),var(--orange));
+      padding:12px 18px;
+      border-radius:999px;
+      box-shadow:0 14px 34px rgba(255,111,77,.30);
+    }
+    .menu{
+      display:none;width:48px;height:48px;border:0;border-radius:16px;
+      background:#fff1e8;color:var(--coral);font-size:25px;cursor:pointer;
+    }
+
+    .hero{padding:142px 0 64px;position:relative;overflow:hidden}
+    .hero-grid{
+      min-height:710px;
+      display:grid;
+      grid-template-columns:1.02fr .98fr;
+      gap:54px;
+      align-items:center;
+    }
+    .pill{
+      display:inline-flex;
+      padding:10px 16px;
+      border-radius:999px;
+      color:#64401f;
+      font-size:13px;
+      font-weight:900;
+      background:rgba(255,255,255,.82);
+      box-shadow:0 12px 38px rgba(23,32,51,.08);
+      border:1px solid rgba(255,255,255,.94);
+    }
+    h1,h2,h3,p{margin-top:0}
+    h1,h2{color:var(--ink);letter-spacing:-.07em;line-height:.98}
+    h1{
+      font-size:clamp(46px,8vw,88px);
+      max-width:780px;
+      margin:22px 0 22px;
+    }
+    .hero p{font-size:19px;max-width:650px;color:#536075}
+    .actions{display:flex;flex-wrap:wrap;gap:14px;margin:34px 0 26px}
+    .btn{
+      min-height:56px;
+      padding:0 24px;
+      border-radius:999px;
+      border:0;
+      display:inline-flex;
+      justify-content:center;
+      align-items:center;
+      font-weight:900;
+      cursor:pointer;
+      transition:.25s ease;
+    }
+    .btn:hover{transform:translateY(-3px)}
+    .primary{color:white;background:linear-gradient(135deg,var(--coral),var(--orange));box-shadow:0 18px 44px rgba(255,111,77,.32)}
+    .secondary{background:white;color:var(--ink);box-shadow:0 16px 38px rgba(23,32,51,.10)}
+    .tags{display:flex;flex-wrap:wrap;gap:10px}
+    .tags span{
+      background:white;
+      padding:10px 13px;
+      border-radius:999px;
+      box-shadow:0 10px 30px rgba(23,32,51,.08);
+      font-weight:800;
+      color:#5d687a;
+    }
+    .tags span:nth-child(1){border-bottom:4px solid var(--orange)}
+    .tags span:nth-child(2){border-bottom:4px solid var(--gold)}
+    .tags span:nth-child(3){border-bottom:4px solid var(--green)}
+    .tags span:nth-child(4){border-bottom:4px solid var(--purple)}
+
+    .visual{position:relative;min-height:650px}
+    .main-img{
+      position:absolute;right:0;top:40px;width:86%;height:560px;object-fit:cover;
+      border-radius:48px;border:10px solid rgba(255,255,255,.94);
+      box-shadow:var(--shadow2);
+    }
+    .small-img{
+      position:absolute;width:210px;height:170px;object-fit:cover;border-radius:30px;
+      border:8px solid white;box-shadow:var(--shadow);
+    }
+    .small-img.top{left:0;top:0;transform:rotate(-7deg)}
+    .small-img.bottom{left:18px;bottom:30px;transform:rotate(6deg)}
+    .float-card{
+      position:absolute;right:24px;bottom:0;width:280px;padding:22px;
+      border-radius:30px;background:linear-gradient(135deg,#fff,#fff1e8);
+      box-shadow:var(--shadow);
+    }
+    .float-card strong,.float-card span{display:block}
+    .float-card strong{color:var(--ink);font-size:22px;letter-spacing:-.04em}
+    .float-card span{color:var(--muted)}
+
+    .quick{
+      display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:-18px;
+    }
+    .quick div{
+      padding:22px;border-radius:28px;border:1px solid rgba(255,255,255,.9);
+      box-shadow:0 18px 54px rgba(23,32,51,.10);
+    }
+    .quick div:nth-child(1){background:linear-gradient(135deg,#fff,#ffe1d8)}
+    .quick div:nth-child(2){background:linear-gradient(135deg,#fff,#e6fff0)}
+    .quick div:nth-child(3){background:linear-gradient(135deg,#fff,#eadbff)}
+    .quick div:nth-child(4){background:linear-gradient(135deg,#fff,#fff2bd)}
+    .emoji{display:block;font-size:34px;margin-bottom:12px}
+    .quick strong,.quick small{display:block}
+    .quick strong{color:var(--ink);font-size:19px}
+    .quick small{color:var(--muted)}
+
+    .section{padding:96px 0}
+    .label{
+      display:inline-flex;margin:0 0 12px;color:var(--coral);
+      text-transform:uppercase;letter-spacing:.16em;font-size:12px;font-weight:900;
+    }
+    .intro{
+      width:min(1240px,calc(100% - 24px));
+      margin:30px auto;
+      border-radius:42px;
+      background:linear-gradient(135deg,#172033,#253044);
+      color:white;
+    }
+    .intro-grid{display:grid;grid-template-columns:1fr .8fr;gap:40px;align-items:end}
+    .intro .label{color:var(--gold)}
+    .intro h2{color:white;font-size:clamp(34px,5vw,62px);margin:0}
+    .intro p{color:rgba(255,255,255,.72);font-size:18px;margin:0}
+
+    .title{max-width:760px;margin-bottom:42px}
+    .title.center{text-align:center;margin-left:auto;margin-right:auto}
+    .title h2,.palette h2,.about h2,.cta h2,.contact h2{font-size:clamp(34px,5vw,62px);margin-bottom:14px}
+    .title p,.palette p,.about p,.cta p,.contact p{color:var(--muted);font-size:17px}
+
+    .services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+    .service{
+      position:relative;border-radius:34px;overflow:hidden;min-height:440px;padding:18px;
+      box-shadow:var(--shadow);
+    }
+    .service:nth-child(1){background:linear-gradient(135deg,#ffe1d8,#fff)}
+    .service:nth-child(2){background:linear-gradient(135deg,#d9ffe8,#fff)}
+    .service:nth-child(3){background:linear-gradient(135deg,#eadbff,#fff)}
+    .service:nth-child(4){background:linear-gradient(135deg,#fff0b9,#fff)}
+    .service:nth-child(5){background:linear-gradient(135deg,#d8e4ff,#fff)}
+    .service:nth-child(6){background:linear-gradient(135deg,#ffe1c8,#fff)}
+    .service-icon{
+      position:absolute;top:28px;left:28px;z-index:2;width:58px;height:58px;
+      display:grid;place-items:center;background:rgba(255,255,255,.86);
+      border-radius:20px;font-size:28px;box-shadow:0 14px 34px rgba(23,32,51,.12);
+    }
+    .service img{width:100%;height:245px;object-fit:cover;border-radius:26px;box-shadow:0 16px 44px rgba(23,32,51,.10)}
+    .service div:last-child{padding:22px 8px 4px}
+    .service h3{color:var(--ink);font-size:25px;letter-spacing:-.04em;margin-bottom:8px}
+    .service p{color:var(--muted);margin:0}
+
+    .palette{
+      background:
+        radial-gradient(circle at 15% 20%,rgba(255,111,77,.18),transparent 30%),
+        linear-gradient(135deg,#fff7ed,#edf7ff);
+    }
+    .palette-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:48px;align-items:center}
+    .swatches{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+    .swatches span{
+      min-height:130px;display:flex;align-items:end;padding:18px;border-radius:28px;
+      color:#172033;font-weight:900;box-shadow:var(--shadow);
+    }
+    .swatches span:nth-child(1){background:#ff6f4d;color:white}
+    .swatches span:nth-child(2){background:#2fbf71;color:white}
+    .swatches span:nth-child(3){background:#f6c453}
+    .swatches span:nth-child(4){background:#5b7cfa;color:white}
+    .swatches span:nth-child(5){background:#a855f7;color:white}
+    .swatches span:nth-child(6){background:#fff8ec}
+
+    .gallery{background:white}
+    .gallery-grid{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:260px;gap:18px}
+    figure{margin:0}
+    .gallery figure{
+      position:relative;overflow:hidden;border-radius:32px;box-shadow:0 18px 50px rgba(23,32,51,.12);
+    }
+    .gallery .wide{grid-column:span 2}
+    .gallery .tall{grid-row:span 2}
+    .gallery img{width:100%;height:100%;object-fit:cover;transition:.5s ease}
+    .gallery figure:hover img{transform:scale(1.06)}
+    .gallery figure:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 45%,rgba(23,32,51,.72))}
+    .gallery figcaption{
+      position:absolute;z-index:2;left:18px;bottom:18px;color:white;
+      background:rgba(255,255,255,.18);backdrop-filter:blur(10px);
+      border:1px solid rgba(255,255,255,.25);padding:10px 14px;border-radius:999px;font-weight:900;
+    }
+
+    .process{background:#fff8ec}
+    .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+    .step{
+      background:white;padding:28px;border-radius:32px;box-shadow:var(--shadow);
+      border-bottom:8px solid var(--coral);
+    }
+    .step:nth-child(2){border-bottom-color:var(--green)}
+    .step:nth-child(3){border-bottom-color:var(--blue)}
+    .step:nth-child(4){border-bottom-color:var(--purple)}
+    .step span{
+      width:58px;height:58px;display:grid;place-items:center;border-radius:20px;
+      color:white;background:linear-gradient(135deg,var(--coral),var(--orange));font-weight:900;
+    }
+    .step:nth-child(2) span{background:linear-gradient(135deg,var(--green),#73e3a5)}
+    .step:nth-child(3) span{background:linear-gradient(135deg,var(--blue),#91a9ff)}
+    .step:nth-child(4) span{background:linear-gradient(135deg,var(--purple),var(--pink))}
+    .step h3{color:var(--ink);margin:20px 0 8px;letter-spacing:-.04em}
+    .step p{color:var(--muted);margin:0}
+
+    .about-card{
+      display:grid;grid-template-columns:.95fr 1.05fr;gap:42px;align-items:center;
+      padding:28px;border-radius:44px;background:linear-gradient(135deg,#fff,#fff1e8);
+      box-shadow:var(--shadow2);
+    }
+    .about-card img{width:100%;height:560px;object-fit:cover;border-radius:34px}
+    .features{display:grid;gap:12px;margin:26px 0}
+    .features div{padding:17px;border-radius:22px;background:white;box-shadow:0 12px 34px rgba(23,32,51,.08)}
+    .features strong,.features span{display:block}
+    .features span{color:var(--muted)}
+    .company{padding:20px;border-radius:24px;color:white;background:linear-gradient(135deg,var(--ink),#35415a)}
+    .company p{color:rgba(255,255,255,.72);margin:5px 0 0}
+
+    .cta-section{padding:76px 0}
+    .cta-card{
+      display:flex;align-items:center;justify-content:space-between;gap:26px;padding:42px;
+      color:white;border-radius:42px;
+      background:
+        radial-gradient(circle at 20% 20%,rgba(246,196,83,.36),transparent 28%),
+        linear-gradient(135deg,#ff6f4d,#a855f7 55%,#5b7cfa);
+      box-shadow:var(--shadow2);
+    }
+    .cta h2{color:white;max-width:780px}
+    .cta p{color:rgba(255,255,255,.82);margin:0}
+    .cta .label{color:#fff0b9}
+    .cta .btn{background:white;color:var(--ink);box-shadow:0 18px 44px rgba(0,0,0,.13)}
+
+    .contact{background:linear-gradient(135deg,#edf7ff,#fff7ed)}
+    .contact-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:42px;align-items:start}
+    .contact-cards{display:grid;gap:14px;margin-top:24px}
+    .contact-cards a{display:block;padding:19px;border-radius:26px;background:white;box-shadow:var(--shadow)}
+    .contact-cards a:nth-child(1){border-left:8px solid var(--coral)}
+    .contact-cards a:nth-child(2){border-left:8px solid var(--green)}
+    .contact-cards a:nth-child(3){border-left:8px solid var(--blue)}
+    .contact-cards span{display:block;color:var(--muted);text-transform:uppercase;letter-spacing:.13em;font-size:12px;font-weight:900}
+    .contact-cards strong{color:var(--ink)}
+    form{
+      display:grid;gap:16px;padding:30px;border-radius:38px;background:rgba(255,255,255,.88);
+      box-shadow:var(--shadow2);border:1px solid rgba(255,255,255,.92);backdrop-filter:blur(12px);
+    }
+    .row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+    label{display:grid;gap:8px;color:var(--ink);font-weight:900}
+    input,select,textarea{
+      width:100%;border:1px solid #e5e7eb;background:white;border-radius:18px;
+      padding:15px 16px;outline:none;color:var(--ink);
+    }
+    input:focus,select:focus,textarea:focus{border-color:var(--coral);box-shadow:0 0 0 5px rgba(255,111,77,.13)}
+    form small{color:var(--muted)}
+
+    .footer{background:var(--ink);color:rgba(255,255,255,.72);padding:34px 0}
+    .footer-grid{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:20px}
+    .footer .brand strong{color:white}
+    .footer .brand small{color:rgba(255,255,255,.62)}
+    .footer p{text-align:center;margin:0}
+    .footer-links{display:flex;justify-content:flex-end;gap:18px}
+    .footer a:hover{color:white}
+
+    .reveal{opacity:0;transform:translateY(24px);transition:opacity .75s ease,transform .75s ease}
+    .reveal.show{opacity:1;transform:translateY(0)}
+
+    @media(max-width:980px){
+      .header{top:10px}.nav{border-radius:28px}.menu{display:grid;place-items:center}
+      .links{
+        display:none;position:fixed;left:16px;right:16px;top:92px;flex-direction:column;
+        align-items:stretch;gap:8px;padding:18px;border-radius:28px;background:rgba(255,255,255,.96);
+        box-shadow:var(--shadow)
+      }
+      .links.show{display:flex}.links a{padding:14px;border-radius:16px}.links a:hover{background:#fff1e8}
+      .hero-grid,.intro-grid,.palette-grid,.about-card,.contact-grid{grid-template-columns:1fr}
+      .hero-grid{min-height:auto}.visual{min-height:560px}
+      .quick,.steps{grid-template-columns:repeat(2,1fr)}
+      .services-grid{grid-template-columns:repeat(2,1fr)}
+      .gallery-grid{grid-template-columns:repeat(2,1fr)}
+      .footer-grid{grid-template-columns:1fr;text-align:left}.footer p{text-align:left}.footer-links{justify-content:flex-start}
+      .cta-card{align-items:flex-start;flex-direction:column}
+    }
+    @media(max-width:640px){
+      .container{width:min(100% - 24px,1180px)}
+      .nav{min-height:66px;padding:0 10px}.brand-icon{width:44px;height:44px;border-radius:15px}
+      .brand strong{font-size:14px}.brand small{font-size:9px}
+      .hero{padding-top:112px}.hero h1{font-size:clamp(42px,15vw,66px)}
+      .visual{min-height:470px}.main-img{width:100%;top:48px;height:390px;border-radius:34px;border-width:7px}
+      .small-img{width:150px;height:120px;border-width:6px}.small-img.bottom{bottom:4px}
+      .float-card{width:230px;right:8px;bottom:10px;padding:18px}
+      .quick,.services-grid,.gallery-grid,.steps,.swatches,.row{grid-template-columns:1fr}
+      .gallery .wide,.gallery .tall{grid-column:auto;grid-row:auto}.gallery-grid{grid-auto-rows:280px}
+      .section{padding:68px 0}.intro{border-radius:30px}
+      .about-card,form,.cta-card{padding:22px;border-radius:30px}.about-card img{height:390px;border-radius:24px}
+    }
+  </style>
 </head>
 <body>
-  <header class="topbar">
-    <div class="container topbar-inner">
-      <span>NR KITCHEN AND BEDROOMS LTD</span>
-      <div>
-        <a href="tel:+440000000000">+44 0000 000000</a>
-        <a href="mailto:info@nrkitchenandbedrooms.co.uk">info@nrkitchenandbedrooms.co.uk</a>
-      </div>
-    </div>
-  </header>
+  <div class="orb one"></div>
+  <div class="orb two"></div>
+  <div class="orb three"></div>
 
-  <header class="site-header">
-    <nav class="container nav">
-      <a class="brand" href="#home" aria-label="NR Kitchen and Bedrooms LTD">
-        <span class="brand-mark">NR</span>
-        <span class="brand-text">Kitchen & Bedrooms</span>
+  <header class="header" id="top">
+    <div class="container nav">
+      <a class="brand" href="#home">
+        <span class="brand-icon">NR</span>
+        <span><strong>NR Kitchen</strong><small>& Bedrooms LTD</small></span>
       </a>
-
-      <button class="menu-btn" id="menuBtn" aria-label="Open menu">☰</button>
-
-      <div class="nav-links" id="navLinks">
+      <button class="menu" id="menu" aria-label="Open menu">☰</button>
+      <nav class="links" id="links">
         <a href="#home">Home</a>
         <a href="#services">Services</a>
         <a href="#gallery">Gallery</a>
         <a href="#process">Process</a>
-        <a href="#about">About</a>
-        <a class="quote-link" href="#contact">Free Quote</a>
-      </div>
-    </nav>
+        <a href="#contact" class="quote">Free Quote</a>
+      </nav>
+    </div>
   </header>
 
   <main>
     <section class="hero" id="home">
       <div class="container hero-grid">
-        <div class="hero-content">
-          <p class="eyebrow">Kitchen • Bedrooms • Renovation</p>
-          <h1>Professional kitchen and bedroom fitting for modern homes.</h1>
-          <p class="hero-text">
-            NR KITCHEN AND BEDROOMS LTD helps homeowners improve kitchens, bedrooms,
-            wardrobes and interiors with clean finishing, reliable communication and practical workmanship.
-          </p>
-          <div class="hero-actions">
-            <a class="btn primary" href="#contact">Request Free Quote</a>
-            <a class="btn ghost" href="#gallery">View Gallery</a>
+        <div class="reveal">
+          <div class="pill">✨ Kitchens • Bedrooms • Wardrobes • Renovation</div>
+          <h1>Bright, modern interiors made for homes that feel alive.</h1>
+          <p>NR KITCHEN AND BEDROOMS LTD creates stylish kitchen fitting, bedroom installation, fitted wardrobes and interior renovation with colourful design, clean finishing and practical planning.</p>
+          <div class="actions">
+            <a class="btn primary" href="#contact">Get Free Quote</a>
+            <a class="btn secondary" href="#gallery">Explore Designs</a>
           </div>
-
-          <div class="feature-row">
-            <div><strong>Kitchen Fitting</strong><span>Cabinets, worktops and finishing</span></div>
-            <div><strong>Bedroom Units</strong><span>Wardrobes and storage solutions</span></div>
-            <div><strong>Renovation</strong><span>Interior upgrades and repairs</span></div>
+          <div class="tags">
+            <span>Warm wood</span><span>Soft cream</span><span>Sage green</span><span>Gold finish</span>
           </div>
         </div>
 
-        <div class="hero-visual">
-          <img src="https://images.unsplash.com/photo-1556912167-f556f1f39fdf?auto=format&fit=crop&w=1200&q=80" alt="Modern kitchen interior">
-          <div class="floating-card">
-            <strong>Free project estimate</strong>
-            <span>Send room size, photos and details.</span>
-          </div>
+        <div class="visual reveal">
+          <img class="main-img" src="https://images.unsplash.com/photo-1556912167-f556f1f39fdf?auto=format&fit=crop&w=1400&q=90" alt="Modern kitchen">
+          <img class="small-img top" src="https://images.unsplash.com/photo-1616594039964-ae9021a400a0?auto=format&fit=crop&w=900&q=90" alt="Bedroom design">
+          <img class="small-img bottom" src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=900&q=90" alt="Wardrobe design">
+          <div class="float-card"><strong>Premium finish</strong><span>Kitchen & bedroom solutions</span></div>
         </div>
       </div>
-    </section>
 
-    <section class="section logos">
-      <div class="container logos-grid">
-        <span>Reliable Service</span>
-        <span>Clean Finishing</span>
-        <span>Modern Design</span>
-        <span>Friendly Support</span>
+      <div class="container quick reveal">
+        <div><span class="emoji">🍳</span><strong>Kitchen Fitting</strong><small>Cabinets, worktops, storage</small></div>
+        <div><span class="emoji">🛏️</span><strong>Bedrooms</strong><small>Fitted units and finishing</small></div>
+        <div><span class="emoji">🚪</span><strong>Wardrobes</strong><small>Smart storage solutions</small></div>
+        <div><span class="emoji">🎨</span><strong>Renovation</strong><small>Colour, repair and style</small></div>
       </div>
     </section>
 
-    <section class="section services" id="services">
+    <section class="section intro">
+      <div class="container intro-grid reveal">
+        <div>
+          <p class="label">Why choose us</p>
+          <h2>Not just fitting. A better looking home experience.</h2>
+        </div>
+        <p>We help transform ordinary rooms into clean, bright and practical living spaces. This version uses real colours inside one single file, with no external libraries.</p>
+      </div>
+    </section>
+
+    <section class="section" id="services">
       <div class="container">
-        <div class="section-title">
-          <p class="eyebrow">Our Services</p>
-          <h2>Home improvement services tailored to your space.</h2>
-          <p>From planning to finishing, we help with practical solutions for kitchens, bedrooms and interiors.</p>
+        <div class="title reveal">
+          <p class="label">Our Services</p>
+          <h2>Colourful service cards, clear offers.</h2>
+          <p>Everything a homeowner needs to improve kitchens, bedrooms and interiors.</p>
         </div>
 
-        <div class="cards">
-          <article class="card">
-            <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=900&q=80" alt="Kitchen fitting">
-            <div>
-              <h3>Kitchen Fitting</h3>
-              <p>Cabinet installation, worktops, fixtures, storage solutions and detailed finishing.</p>
-            </div>
-          </article>
+        <div class="services-grid">
+          <article class="service reveal"><div class="service-icon">🍽️</div><img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=1000&q=90" alt="Kitchen fitting"><div><h3>Kitchen Fitting</h3><p>Cabinets, worktops, fixtures, layout improvements and final finishing.</p></div></article>
+          <article class="service reveal"><div class="service-icon">🛌</div><img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=1000&q=90" alt="Bedroom installation"><div><h3>Bedroom Installation</h3><p>Fitted bedroom units, headboards, furniture and beautiful clean spaces.</p></div></article>
+          <article class="service reveal"><div class="service-icon">🚪</div><img src="https://images.unsplash.com/photo-1616486029423-aaa4789e8c9a?auto=format&fit=crop&w=1000&q=90" alt="Fitted wardrobes"><div><h3>Fitted Wardrobes</h3><p>Wardrobe layouts, storage design and elegant practical organisation.</p></div></article>
+          <article class="service reveal"><div class="service-icon">🧰</div><img src="https://images.unsplash.com/photo-1600607688969-a5bfcd646154?auto=format&fit=crop&w=1000&q=90" alt="Interior renovation"><div><h3>Interior Renovation</h3><p>Room upgrades, repairs, wall preparation and fresh modern finishing.</p></div></article>
+          <article class="service reveal"><div class="service-icon">🎨</div><img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1000&q=90" alt="Painting and decorating"><div><h3>Painting & Decorating</h3><p>Colour choices, decorative finish and a clean presentation for the room.</p></div></article>
+          <article class="service reveal"><div class="service-icon">💡</div><img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1000&q=90" alt="Design advice"><div><h3>Design Advice</h3><p>Help choosing colours, materials and room ideas before the work begins.</p></div></article>
+        </div>
+      </div>
+    </section>
 
-          <article class="card">
-            <img src="https://images.unsplash.com/photo-1616594039964-ae9021a400a0?auto=format&fit=crop&w=900&q=80" alt="Bedroom installation">
-            <div>
-              <h3>Bedroom Installation</h3>
-              <p>Fitted wardrobes, bedroom furniture, storage design and space optimisation.</p>
-            </div>
-          </article>
-
-          <article class="card">
-            <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=900&q=80" alt="Interior renovation">
-            <div>
-              <h3>Interior Renovation</h3>
-              <p>Room improvements, repairs, wall preparation, painting and decorating support.</p>
-            </div>
-          </article>
-
-          <article class="card">
-            <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=900&q=80" alt="Bathroom and home finishing">
-            <div>
-              <h3>Finishing Works</h3>
-              <p>Final touches, adjustments, clean finishing and professional presentation.</p>
-            </div>
-          </article>
+    <section class="section palette">
+      <div class="container palette-grid reveal">
+        <div>
+          <p class="label">Colour mood</p>
+          <h2>Warm, fresh and premium colour direction.</h2>
+          <p>These colours make the website feel alive and suitable for interior design.</p>
+        </div>
+        <div class="swatches">
+          <span>Terracotta</span><span>Sage Green</span><span>Warm Gold</span><span>Soft Blue</span><span>Lavender</span><span>Cream</span>
         </div>
       </div>
     </section>
 
     <section class="section gallery" id="gallery">
       <div class="container">
-        <div class="section-title">
-          <p class="eyebrow">Gallery</p>
-          <h2>Project inspiration</h2>
-          <p>Replace these sample photos with real photos from your completed work when available.</p>
+        <div class="title center reveal">
+          <p class="label">Gallery</p>
+          <h2>Visual inspiration with stronger colours.</h2>
+          <p>Replace these sample photos with real work photos later.</p>
         </div>
 
         <div class="gallery-grid">
-          <figure>
-            <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?auto=format&fit=crop&w=1000&q=80" alt="Kitchen project">
-            <figcaption>Modern kitchen design</figcaption>
-          </figure>
-          <figure>
-            <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=1000&q=80" alt="Bedroom project">
-            <figcaption>Bedroom interior</figcaption>
-          </figure>
-          <figure>
-            <img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1000&q=80" alt="Living space renovation">
-            <figcaption>Interior renovation</figcaption>
-          </figure>
-          <figure>
-            <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1000&q=80" alt="Wardrobe and storage">
-            <figcaption>Storage solutions</figcaption>
-          </figure>
-          <figure>
-            <img src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=1000&q=80" alt="Home improvement">
-            <figcaption>Home improvement</figcaption>
-          </figure>
-          <figure>
-            <img src="https://images.unsplash.com/photo-1600607688969-a5bfcd646154?auto=format&fit=crop&w=1000&q=80" alt="Clean interior finish">
-            <figcaption>Clean finishing</figcaption>
-          </figure>
+          <figure class="wide reveal"><img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?auto=format&fit=crop&w=1300&q=90" alt="Kitchen design"><figcaption>Modern kitchen design</figcaption></figure>
+          <figure class="reveal"><img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=1000&q=90" alt="Bedroom design"><figcaption>Bedroom finish</figcaption></figure>
+          <figure class="reveal"><img src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=1000&q=90" alt="Kitchen cabinets"><figcaption>Kitchen cabinets</figcaption></figure>
+          <figure class="tall reveal"><img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1000&q=90" alt="Interior renovation"><figcaption>Interior renovation</figcaption></figure>
+          <figure class="reveal"><img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1000&q=90" alt="Bedroom decor"><figcaption>Decor style</figcaption></figure>
+          <figure class="reveal"><img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1000&q=90" alt="Wardrobe storage"><figcaption>Storage solutions</figcaption></figure>
         </div>
       </div>
     </section>
 
     <section class="section process" id="process">
       <div class="container">
-        <div class="section-title center">
-          <p class="eyebrow">How It Works</p>
-          <h2>Simple process from first message to final finish.</h2>
+        <div class="title center reveal">
+          <p class="label">Simple Process</p>
+          <h2>From idea to finished room.</h2>
         </div>
-
         <div class="steps">
-          <div class="step">
-            <span>01</span>
-            <h3>Send details</h3>
-            <p>Share your project type, measurements, photos and preferred style.</p>
-          </div>
-          <div class="step">
-            <span>02</span>
-            <h3>Get estimate</h3>
-            <p>We review your request and provide a practical estimate or next step.</p>
-          </div>
-          <div class="step">
-            <span>03</span>
-            <h3>Plan the work</h3>
-            <p>We agree on scope, timing, materials and clear expectations.</p>
-          </div>
-          <div class="step">
-            <span>04</span>
-            <h3>Complete finish</h3>
-            <p>The work is completed with attention to detail and clean presentation.</p>
-          </div>
+          <div class="step reveal"><span>01</span><h3>Send photos</h3><p>Share room photos, size, preferred style and what you want to improve.</p></div>
+          <div class="step reveal"><span>02</span><h3>Get guidance</h3><p>We suggest a practical direction, options and initial estimate.</p></div>
+          <div class="step reveal"><span>03</span><h3>Plan the work</h3><p>Agree details, materials, timing and project expectations.</p></div>
+          <div class="step reveal"><span>04</span><h3>Finish beautifully</h3><p>The installation is completed with clean, colourful presentation.</p></div>
         </div>
       </div>
     </section>
 
-    <section class="section about" id="about">
-      <div class="container about-grid">
-        <div class="about-image">
-          <img src="https://images.unsplash.com/photo-1507089947368-19c1da9775ae?auto=format&fit=crop&w=1100&q=80" alt="Home renovation work">
-        </div>
+    <section class="section about">
+      <div class="container about-card reveal">
+        <img src="https://images.unsplash.com/photo-1507089947368-19c1da9775ae?auto=format&fit=crop&w=1300&q=90" alt="Home interior">
         <div>
-          <p class="eyebrow">About The Company</p>
+          <p class="label">About NR</p>
           <h2>NR KITCHEN AND BEDROOMS LTD</h2>
-          <p>
-            We provide professional kitchen, bedroom and interior improvement services for homes.
-            Our focus is on clear communication, reliable work and a clean final result.
-          </p>
-          <ul class="check-list">
-            <li>Kitchen installation and upgrades</li>
-            <li>Bedroom units and fitted wardrobes</li>
-            <li>Interior renovation and finishing</li>
-            <li>Painting, decorating and small improvement works</li>
-          </ul>
-
-          <div class="company-box">
-            <strong>Company details section</strong>
-            <p>You can add your registered company number, address, phone and service areas here.</p>
+          <p>We provide kitchen fitting, bedroom installation, fitted wardrobes, interior renovation, painting and decorating support. Our focus is a bright, modern finish that improves the look and use of the home.</p>
+          <div class="features">
+            <div><strong>✓ Modern look</strong><span>Clean, fresh and colourful</span></div>
+            <div><strong>✓ Practical planning</strong><span>Built around the room</span></div>
+            <div><strong>✓ Quality finish</strong><span>Attention to final details</span></div>
           </div>
+          <div class="company"><strong>Company details</strong><p>Add registered address, company number, phone, email and service areas here.</p></div>
         </div>
       </div>
     </section>
 
-    <section class="section cta">
-      <div class="container cta-box">
+    <section class="cta-section cta">
+      <div class="container cta-card reveal">
         <div>
-          <p class="eyebrow">Ready to start?</p>
-          <h2>Request a free quote for your kitchen or bedroom project.</h2>
+          <p class="label">Ready?</p>
+          <h2>Start your kitchen or bedroom project today.</h2>
+          <p>Send your photos, measurements and preferred style for a free quote request.</p>
         </div>
-        <a class="btn primary" href="#contact">Contact Us</a>
+        <a class="btn" href="#contact">Request Quote</a>
       </div>
     </section>
 
     <section class="section contact" id="contact">
       <div class="container contact-grid">
-        <div>
-          <p class="eyebrow">Contact</p>
-          <h2>Tell us about your project.</h2>
-          <p>
-            Replace the phone number, email and WhatsApp link with your real company information.
-          </p>
-
+        <div class="reveal">
+          <p class="label">Contact</p>
+          <h2>Tell us what you want to build.</h2>
+          <p>Replace these placeholder contact details before publishing.</p>
           <div class="contact-cards">
-            <a href="tel:+440000000000">
-              <strong>Phone</strong>
-              <span>+44 0000 000000</span>
-            </a>
-            <a href="mailto:info@nrkitchenandbedrooms.co.uk">
-              <strong>Email</strong>
-              <span>info@nrkitchenandbedrooms.co.uk</span>
-            </a>
-            <a href="https://wa.me/440000000000" target="_blank" rel="noopener">
-              <strong>WhatsApp</strong>
-              <span>Message us directly</span>
-            </a>
+            <a href="tel:+440000000000"><span>Call us</span><strong>+44 0000 000000</strong></a>
+            <a href="mailto:info@nrkitchenandbedrooms.co.uk"><span>Email</span><strong>info@nrkitchenandbedrooms.co.uk</strong></a>
+            <a href="https://wa.me/440000000000" target="_blank" rel="noopener"><span>WhatsApp</span><strong>Message directly</strong></a>
           </div>
         </div>
 
-        <form class="contact-form" action="mailto:info@nrkitchenandbedrooms.co.uk" method="post" enctype="text/plain">
-          <label>
-            Full name
-            <input type="text" name="name" placeholder="Your name" required>
-          </label>
-          <label>
-            Email address
-            <input type="email" name="email" placeholder="your@email.com" required>
-          </label>
-          <label>
-            Phone number
-            <input type="tel" name="phone" placeholder="+44 ...">
-          </label>
-          <label>
-            Service needed
-            <select name="service">
-              <option>Kitchen fitting</option>
-              <option>Bedroom installation</option>
-              <option>Wardrobes / storage</option>
-              <option>Renovation / finishing</option>
-              <option>Painting & decorating</option>
-            </select>
-          </label>
-          <label>
-            Message
-            <textarea name="message" rows="5" placeholder="Describe your project, room size, location and preferred date"></textarea>
-          </label>
-          <button class="btn primary" type="submit">Send Quote Request</button>
+        <form class="reveal" action="mailto:info@nrkitchenandbedrooms.co.uk" method="post" enctype="text/plain">
+          <div class="row">
+            <label>Full name<input type="text" name="name" placeholder="Your name" required></label>
+            <label>Phone<input type="tel" name="phone" placeholder="+44 ..."></label>
+          </div>
+          <label>Email<input type="email" name="email" placeholder="your@email.com" required></label>
+          <label>Service<select name="service"><option>Kitchen fitting</option><option>Bedroom installation</option><option>Fitted wardrobes</option><option>Interior renovation</option><option>Painting and decorating</option></select></label>
+          <label>Message<textarea name="message" rows="6" placeholder="Describe the room, size, colour style and preferred timeline"></textarea></label>
+          <button class="btn primary" type="submit">Send Request</button>
+          <small>This form opens the email app. For online submissions, connect Formspree or another form service.</small>
         </form>
       </div>
     </section>
@@ -294,15 +566,41 @@
 
   <footer class="footer">
     <div class="container footer-grid">
+      <a class="brand" href="#top"><span class="brand-icon">NR</span><span><strong>NR Kitchen</strong><small>& Bedrooms LTD</small></span></a>
       <p>© <span id="year"></span> NR KITCHEN AND BEDROOMS LTD. All rights reserved.</p>
-      <div>
-        <a href="#services">Services</a>
-        <a href="#gallery">Gallery</a>
-        <a href="#contact">Contact</a>
-      </div>
+      <div class="footer-links"><a href="#services">Services</a><a href="#gallery">Gallery</a><a href="#contact">Contact</a></div>
     </div>
   </footer>
 
-  <script src="script.js"></script>
+  <script>
+    const year=document.getElementById("year");
+    const menu=document.getElementById("menu");
+    const links=document.getElementById("links");
+    if(year) year.textContent=new Date().getFullYear();
+
+    if(menu && links){
+      menu.addEventListener("click",()=>{
+        links.classList.toggle("show");
+        document.body.classList.toggle("menu-open");
+      });
+      links.querySelectorAll("a").forEach(a=>{
+        a.addEventListener("click",()=>{
+          links.classList.remove("show");
+          document.body.classList.remove("menu-open");
+        });
+      });
+    }
+
+    const items=document.querySelectorAll(".reveal");
+    const obs=new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{
+        if(e.isIntersecting){
+          e.target.classList.add("show");
+          obs.unobserve(e.target);
+        }
+      });
+    },{threshold:.12});
+    items.forEach(i=>obs.observe(i));
+  </script>
 </body>
 </html>
